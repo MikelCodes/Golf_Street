@@ -17,7 +17,6 @@ public class player_Movement : MonoBehaviour
     private bool lastPressedS = false;
     private bool lastPressedA = false;
     private bool lastPressedD = false;
-    private bool ballstate = false;
 
     // Use this for initialization
     void Start()
@@ -83,7 +82,7 @@ public class player_Movement : MonoBehaviour
             lastPressedA = true;
         }
 
-        if (Input.GetKeyDown("f") && rollTimer <= 0)
+        if (Input.GetKeyDown("p") && rollTimer <= 0)
         {
             if (lastPressedW == true)
             {

@@ -16523,7 +16523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Use WSAD to move and f to move the ball. \nThe ball will always move in
+  m_Text: "Use WSAD to move and P to move the ball. \nThe ball will always move in
     the last moved direction. \nThe ball will also hit anything in it's path (including
     the player)"
 --- !u!222 &608724654
@@ -18613,7 +18613,7 @@ Transform:
   m_GameObject: {fileID: 694701682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 233.61505, y: 37.71, z: -28.428406}
-  m_LocalScale: {x: 379.18405, y: 5.2972, z: 1}
+  m_LocalScale: {x: 379.18405, y: 5.2972, z: 1.3846}
   m_Children: []
   m_Father: {fileID: 2048410676}
   m_RootOrder: 1
@@ -40558,6 +40558,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2624229839798445949, guid: aff1dda002118e244b2c38a793eddd45, type: 3}
+      propertyPath: timer
+      value: 240
+      objectReference: {fileID: 0}
     - target: {fileID: 5074158827494378839, guid: aff1dda002118e244b2c38a793eddd45, type: 3}
       propertyPath: m_Name
       value: Ball
