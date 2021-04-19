@@ -13,8 +13,6 @@ public class player_Movement : MonoBehaviour
     private float ballXSpeed;
     private float ballZSpeed;
     private float rollTimer;
-    private float powerTimer = 0;
-    private bool powerOn = false;
     private bool lastPressedW = false;
     private bool lastPressedS = false;
     private bool lastPressedA = false;
@@ -54,102 +52,72 @@ public class player_Movement : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        //----------------------------------------------
+        //---------------------------------------------
 
-        if (powerTimer <= 0)
+        if (Input.GetAxis("Vertical") == 1)
         {
-            if (Input.GetAxis("Vertical") == 1)
-            {
-                lastPressedW = true;
-                lastPressedS = false;
-                lastPressedD = false;
-                lastPressedA = false;
-            }
-            if (Input.GetAxis("Vertical") == -1)
-            {
-                lastPressedW = false;
-                lastPressedS = true;
-                lastPressedD = false;
-                lastPressedA = false;
-            }
-            if (Input.GetAxis("Horizontal") == 1)
-            {
-                lastPressedW = false;
-                lastPressedS = false;
-                lastPressedD = true;
-                lastPressedA = false;
-            }
-            if (Input.GetAxis("Horizontal") == -1)
-            {
-                lastPressedW = false;
-                lastPressedS = false;
-                lastPressedD = false;
-                lastPressedA = true;
-            }
+            lastPressedW = true;
+            lastPressedS = false;
+            lastPressedD = false;
+            lastPressedA = false;
+        }
+        if (Input.GetAxis("Vertical") == -1)
+        {
+            lastPressedW = false;
+            lastPressedS = true;
+            lastPressedD = false;
+            lastPressedA = false;
+        }
+        if (Input.GetAxis("Horizontal") == 1)
+        {
+            lastPressedW = false;
+            lastPressedS = false;
+            lastPressedD = true;
+            lastPressedA = false;
+        }
+        if (Input.GetAxis("Horizontal") == -1)
+        {
+            lastPressedW = false;
+            lastPressedS = false;
+            lastPressedD = false;
+            lastPressedA = true;
         }
 
-        if ((Input.GetKeyDown("f")) && (powerTimer <= 0))
+        if (Input.GetKeyDown("f") && rollTimer <= 0)
         {
             if (lastPressedW == true)
             {
                 ballXSpeed = 0;
-                ballZSpeed = ballZSpeed + 10;
+                ballZSpeed = 10;
             }
             if (lastPressedS == true)
             {
                 ballXSpeed = 0;
-                ballZSpeed = -ballZSpeed - 10;
+                ballZSpeed = -10;
             }
             if (lastPressedD == true)
             {
-                ballXSpeed = ballXSpeed + 10;
+                ballXSpeed = 10;
                 ballZSpeed = 0;
             }
             if (lastPressedA == true)
             {
-                ballXSpeed = ballXSpeed - 10;
+                ballXSpeed = -10;
                 ballZSpeed = 0;
             }
-        }
-
-        if ((Input.GetKeyDown("f")) && (powerOn == false) && (ballstate == false))
-        {
-            powerOn = true;
-            powerTimer = 1;
-        }
-
-        if (powerTimer > 0)
-        {
-            powerTimer = powerTimer - Time.deltaTime;
-            Debug.Log(powerTimer);
-        }
-        else
-        {
-            if (ballstate == false)
-            {
-                rollTimer = 1;
-                ballstate = true;
-            }
-            
+            rollTimer = 0.5f;
+            Debug.Log(rollTimer);
         }
 
         if (rollTimer > 0)
         {
             ballrb.velocity = new Vector3(ballXSpeed, -1, ballZSpeed);
             rollTimer = rollTimer - Time.deltaTime;
-            powerOn = false;
-            //Debug.Log(rollTimer);
+            Debug.Log(rollTimer);
         }
         else
         {
-            if (ballstate == true)
-            {
-                ballrb.velocity = new Vector3(0, -1, 0);
-                ballZSpeed = 0;
-                ballXSpeed = 0;
-                ballstate = false;
-            }
+            ballrb.velocity = new Vector3(0, -1, 0);  
         }
-
     }
 }
