@@ -135,7 +135,7 @@ public class player_Movement : MonoBehaviour
 
         if (rollTimer > 0)
         {
-            ballrb.velocity = new Vector3(ballXSpeed, 0, ballZSpeed);
+            ballrb.velocity = new Vector3(ballXSpeed, -1, ballZSpeed);
             rollTimer = rollTimer - Time.deltaTime;
             powerOn = false;
             //Debug.Log(rollTimer);
@@ -144,7 +144,7 @@ public class player_Movement : MonoBehaviour
         {
             if (ballstate == true)
             {
-                ballrb.velocity = new Vector3(0, 0, 0);
+                ballrb.velocity = new Vector3(0, -1, 0);
                 ballZSpeed = 0;
                 ballXSpeed = 0;
                 ballstate = false;
