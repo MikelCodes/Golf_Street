@@ -105,14 +105,14 @@ public class player_Movement : MonoBehaviour
                 ballZSpeed = 0;
             }
             rollTimer = 0.5f;
-            Debug.Log(rollTimer);
+            //Debug.Log(rollTimer);
         }
 
         if (rollTimer > 0)
         {
             ballrb.velocity = new Vector3(ballXSpeed, -1, ballZSpeed);
             rollTimer = rollTimer - Time.deltaTime;
-            Debug.Log(rollTimer);
+            //Debug.Log(rollTimer);
         }
         else
         {

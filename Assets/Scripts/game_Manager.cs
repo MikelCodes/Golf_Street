@@ -27,7 +27,7 @@ public class game_Manager : MonoBehaviour
             
             timer_Text.text = "Time Remaining " + timerInt + " Seconds";
         }
-        Debug.Log(timer);
+        //Debug.Log(timer);
 
         if (timer <= (timerInt - 1))
         {
