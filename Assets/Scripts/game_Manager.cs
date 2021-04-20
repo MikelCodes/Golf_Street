@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class game_Manager : MonoBehaviour
 {
-    private float timer;
-    public int timerInt;
+    public int timerStart;
+    public float timer;
     public Text timer_Text;
 
     void Start ()
     {
-        timer = timerInt;
-    }
+        timer = timerStart;    }
 
     // Update is called once per frame
     void Update()
@@ -25,18 +25,19 @@ public class game_Manager : MonoBehaviour
         {
             timer -= Time.deltaTime;
             
-            timer_Text.text = "Time Remaining " + timerInt + " Seconds";
+            timer_Text.text = "Time Remaining " + timerStart + " Seconds";
         }
         //Debug.Log(timer);
 
-        if (timer <= (timerInt - 1))
+        if (timer <= (timerStart - 1))
         {
-            timerInt--;
+            timerStart--;
         }
+
     }
 
     void timerEnd()
     {
-        
+        SceneManager.LoadScene(0);
     }
 }
