@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class game_Manager : MonoBehaviour
 {
-    public float timer;
+    private float timer;
+    public int timerInt;
+    public Text timer_Text;
 
-    // Start is called before the first frame update
-    void Start()
+    void Start ()
     {
-        
+        timer = timerInt;
     }
 
     // Update is called once per frame
@@ -22,12 +24,19 @@ public class game_Manager : MonoBehaviour
         else
         {
             timer -= Time.deltaTime;
+            
+            timer_Text.text = "Time Remaining " + timerInt + " Seconds";
         }
         Debug.Log(timer);
+
+        if (timer <= (timerInt - 1))
+        {
+            timerInt--;
+        }
     }
 
     void timerEnd()
     {
-
+        
     }
 }
