@@ -9,10 +9,13 @@ public class game_Manager : MonoBehaviour
     public int timerStart;
     public float timer;
     public Text timer_Text;
+    public Text win_Text;
+    public bool Win;
 
     void Start ()
     {
-        timer = timerStart;    }
+        timer = timerStart;
+    }
 
     // Update is called once per frame
     void Update()
@@ -23,9 +26,16 @@ public class game_Manager : MonoBehaviour
         }
         else
         {
-            timer -= Time.deltaTime;
-            
-            timer_Text.text = "Time Remaining " + timerStart + " Seconds";
+            if (Win == false)
+            {
+                timer -= Time.deltaTime;
+
+                timer_Text.text = "Time Remaining " + timerStart + " Seconds";
+            }
+            else
+            {
+                win();
+            }
         }
         //Debug.Log(timer);
 
@@ -39,5 +49,10 @@ public class game_Manager : MonoBehaviour
     void timerEnd()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void win ()
+    {
+        win_Text.text = "you win";
     }
 }
