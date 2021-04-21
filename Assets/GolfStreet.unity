@@ -25582,7 +25582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952830012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 181.81999, y: 36.257442, z: -7.9}
+  m_LocalPosition: {x: 181.81999, y: 36.257442, z: -8.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 253524268}
@@ -41711,6 +41711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 7908225409609189474, guid: aff1dda002118e244b2c38a793eddd45, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123163223864981382, guid: aff1dda002118e244b2c38a793eddd45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 86.2
@@ -52130,7 +52134,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.8390594, b: 0.4009434, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -52187,13 +52191,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772388056}
-  m_LocalRotation: {x: 0.47387347, y: -0, z: -0, w: 0.88059294}
+  m_LocalRotation: {x: 0.13384482, y: -0, z: -0, w: 0.9910023}
   m_LocalPosition: {x: -111.199486, y: -39.10478, z: 42.665527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 747539638}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 56.572, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15.384, y: 0, z: 0}
 --- !u!43 &1786944331
 Mesh:
   m_ObjectHideFlags: 0
@@ -53124,7 +53128,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15648
+  m_Name: pb_Mesh15670
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
