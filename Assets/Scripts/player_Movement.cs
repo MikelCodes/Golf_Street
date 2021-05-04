@@ -8,15 +8,13 @@ public class player_Movement : MonoBehaviour
     private float translation;
     private float straife;
     //-------------------------------------
-    GameObject ball;
-    Rigidbody ballrb;
+    private GameObject ball;
+    private Rigidbody ballrb;
     private float ballXSpeed;
     private float ballZSpeed;
     private float rollTimer;
-    private bool lastPressedW = false;
-    private bool lastPressedS = false;
-    private bool lastPressedA = false;
-    private bool lastPressedD = false;
+    //-------------------------------------
+    public AudioSource ballAudio;
 
     // Use this for initialization
     void Start()
@@ -28,6 +26,8 @@ public class player_Movement : MonoBehaviour
 
         ball = GameObject.FindGameObjectWithTag("Ball");
         ballrb = ball.gameObject.GetComponent<Rigidbody>();
+
+
     }
 
     // Update is called once per frame
@@ -51,61 +51,30 @@ public class player_Movement : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        //---------------------------------------------
 
         if (Input.GetAxis("Vertical") == 1)
         {
-            lastPressedW = true;
-            lastPressedS = false;
-            lastPressedD = false;
-            lastPressedA = false;
+            ballZSpeed = 10;
         }
         if (Input.GetAxis("Vertical") == -1)
         {
-            lastPressedW = false;
-            lastPressedS = true;
-            lastPressedD = false;
-            lastPressedA = false;
+            ballZSpeed = -10;
         }
         if (Input.GetAxis("Horizontal") == 1)
         {
-            lastPressedW = false;
-            lastPressedS = false;
-            lastPressedD = true;
-            lastPressedA = false;
+            ballXSpeed = 10;
         }
         if (Input.GetAxis("Horizontal") == -1)
         {
-            lastPressedW = false;
-            lastPressedS = false;
-            lastPressedD = false;
-            lastPressedA = true;
+            ballXSpeed = -10;
         }
 
         if (Input.GetKeyDown("p") && rollTimer <= 0)
         {
-            if (lastPressedW == true)
-            {
-                ballXSpeed = 0;
-                ballZSpeed = 10;
-            }
-            if (lastPressedS == true)
-            {
-                ballXSpeed = 0;
-                ballZSpeed = -10;
-            }
-            if (lastPressedD == true)
-            {
-                ballXSpeed = 10;
-                ballZSpeed = 0;
-            }
-            if (lastPressedA == true)
-            {
-                ballXSpeed = -10;
-                ballZSpeed = 0;
-            }
             rollTimer = 0.5f;
             //Debug.Log(rollTimer);
+            //------------------------------------------------------------
+            ballAudio.Play();
         }
 
         if (rollTimer > 0)
@@ -118,5 +87,14 @@ public class player_Movement : MonoBehaviour
         {
             ballrb.velocity = new Vector3(0, -1, 0);  
         }
+
+        speedReset();
+
+    }
+
+    private void speedReset()
+    {
+        ballXSpeed = 0;
+        ballZSpeed = 0;
     }
 }

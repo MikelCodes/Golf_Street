@@ -20,7 +20,7 @@ public class Damager : MonoBehaviour
         cooldown -= Time.deltaTime;
     }
 
-    void OnCollisionEnter (Collision Collision)
+    void OnCollisionStay (Collision Collision)
     {
         if (Collision.gameObject.tag == "Player")
         {
@@ -30,5 +30,6 @@ public class Damager : MonoBehaviour
                 cooldown = 2;
             }
         }
+        cooldown -= Time.deltaTime;
     }
 }
