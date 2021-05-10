@@ -20,11 +20,7 @@ public class game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer <= 0)
-        {
-            timerEnd();
-        }
-        else
+        if (timer >= 0)
         {
             if (Win == false)
             {
@@ -39,11 +35,19 @@ public class game_Manager : MonoBehaviour
         }
         //Debug.Log(timer);
 
+    }
+
+    void FixedUpdate ()
+    {
         if (timer <= (timerStart - 1))
         {
             timerStart--;
         }
 
+        if (timerStart == 0)
+        {
+            timerEnd();
+        }
     }
 
     void timerEnd()
